@@ -236,8 +236,8 @@ body {
   display: flex; align-items: center; justify-content: space-between; gap: 20px;
 }
 .nav-brand { display: flex; align-items: center; text-decoration: none; }
-.nav-logo { height: 52px; width: auto; transition: var(--transition); }
-.navbar.scrolled .nav-logo { height: 44px; }
+.nav-logo { height: 150px; width: auto; transition: var(--transition); }
+.navbar.scrolled .nav-logo { height: 130px; }
 .nav-logo-text {
   font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600;
   color: var(--white); letter-spacing: 1px;
@@ -323,13 +323,23 @@ body {
 .slide.active { opacity: 1; }
 
 /* Gradient now sweeps strongly from left so text reads perfectly */
-.hero-overlay {
+/* .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(
     105deg,
     rgba(2, 87, 169, 0.88) 0%,
     rgba(1, 65, 138, 0.65) 45%,
     rgba(0, 0, 0, 0.18) 100%
+  );
+} */
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(2, 87, 169, 0.80) 0%,
+    rgba(1, 65, 138, 0.58) 45%,
+    rgba(0, 0, 0, 0.14) 100%
   );
 }
 
