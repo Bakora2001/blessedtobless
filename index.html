@@ -3,716 +3,291 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blessed to Bless Healthcare | Your Health, Our Mission</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <title>Blessed to Bless Healthcare | Under Maintenance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --blue-dark: #0257A9;
+      --blue-mid: #5898D2;
+      --blue-light: #9FBFDF;
+      --white: #FFFFFF;
+      --off-white: #F5F7FB;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: linear-gradient(135deg, #0257A9 0%, #014fa8 50%, #0163cc 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background circles */
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(159, 191, 223, 0.08);
+      animation: float 8s ease-in-out infinite;
+    }
+    body::before {
+      width: 600px; height: 600px;
+      top: -200px; left: -200px;
+    }
+    body::after {
+      width: 400px; height: 400px;
+      bottom: -150px; right: -100px;
+      animation-delay: 4s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .maintenance-wrap {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 24px;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .logo-wrap {
+      margin-bottom: 40px;
+    }
+    .logo-wrap img {
+      max-height: 100px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 2px;
+      display: none;
+    }
+
+    .maintenance-icon {
+      width: 90px; height: 90px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 32px;
+      font-size: 2.2rem;
+      color: var(--blue-light);
+      animation: spin-slow 6s linear infinite;
+    }
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .maintenance-tag {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--blue-light);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--blue-light);
+      font-weight: 400;
+    }
+
+    .maintenance-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      margin-bottom: 48px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      margin-bottom: 48px;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .progress-bar {
+      height: 5px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 75%;
+      background: linear-gradient(90deg, var(--blue-light), var(--white));
+      border-radius: 10px;
+      animation: progressPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes progressPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Contact info */
+    .contact-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 28px 32px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      margin-bottom: 36px;
+      backdrop-filter: blur(10px);
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-item:hover { color: var(--white); }
+    .contact-item i {
+      color: var(--blue-light);
+      font-size: 1rem;
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .social-links a {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-3px);
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.5px;
+    }
+    .footer-note em {
+      font-style: italic;
+      color: rgba(159,191,223,0.5);
+    }
+  </style>
 </head>
 <body>
 
-  <!-- CURSOR -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-wave" id="cursorWave"></div>
+  <div class="maintenance-wrap">
 
-  <!-- PRELOADER -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">
-        <img src="assets/logo.png" alt="Blessed to Bless Healthcare Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
-        <span style="display:none" class="preloader-text-logo">Blessed to Bless</span>
-      </div>
-      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="assets/logo.png" alt="Blessed to Bless Healthcare"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span class="logo-text">Blessed to Bless Healthcare</span>
     </div>
-  </div>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-brand">
-        <img src="assets/logo.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"/>
-        <span class="nav-logo-text" style="display:none">Blessed to Bless</span>
+    <!-- Spinning icon -->
+    <div class="maintenance-icon">
+      <i class="fas fa-cog"></i>
+    </div>
+
+    <span class="maintenance-tag">We'll be back shortly</span>
+
+    <h1>Under <em>Maintenance</em></h1>
+
+    <p class="maintenance-desc">
+      We are currently making improvements to serve you better.
+      Our team is working hard to bring you an even better experience.
+      Thank you for your patience.
+    </p>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Work in progress</span>
+        <span>Almost there...</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Contact strip -->
+    <div class="contact-strip">
+      <a href="tel:0720930215" class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>0720 930 215</span>
       </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#home" class="nav-link">Home</a>
-        <div class="nav-dropdown">
-          <a href="#about" class="nav-link dropdown-toggle">About <i class="fas fa-chevron-down fa-xs"></i></a>
-          <div class="dropdown-menu">
-            <a href="#about">Who We Are</a>
-            <a href="#vision">Vision & Mission</a>
-            <a href="#values">Core Values</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#services" class="nav-link dropdown-toggle">Services <i class="fas fa-chevron-down fa-xs"></i></a>
-          <div class="dropdown-menu">
-            <a href="#services">All Services</a>
-            <a href="#maternity">Maternity Care</a>
-            <a href="#dental">Dental Services</a>
-            <a href="#gbv">GBV Support</a>
-          </div>
-        </div>
-        <a href="#facility" class="nav-link">Facility</a>
-        <a href="#pricing" class="nav-link">Lab Costs</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <div class="nav-cta">
-        <a href="tel:0720930215" class="btn-nav"><i class="fas fa-phone"></i> Call Now</a>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ============================================================
-       HERO SECTION — images from assets/, text left-aligned
-       ============================================================ -->
-  <section class="hero" id="home">
-    <div class="hero-slider">
-      <!-- Slide 1 -->
-      <div class="slide active" style="background-image:url('assets/hospital-image.jpeg')"></div>
-      <!-- Slide 2 -->
-      <div class="slide" style="background-image:url('assets/hospital-image1.jpeg')"></div>
-      <!-- Slide 3 -->
-      <div class="slide" style="background-image:url('assets/labor-ward1.jpeg')"></div>
-      <!-- Slide 4 -->
-      <div class="slide" style="background-image:url('assets/lab.jpeg')"></div>
-      <!-- Slide 5 -->
-      <div class="slide" style="background-image:url('assets/pharmacy1.jpeg')"></div>
-      <!-- Slide 6 -->
-      <div class="slide" style="background-image:url('assets/reception-image.jpeg')"></div>
-    </div>
-    <div class="hero-overlay"></div>
-
-    <!-- LEFT-ALIGNED hero content -->
-    <div class="hero-content">
-      <p class="hero-tag animate-up">Level 3A Healthcare Facility · Nairobi</p>
-      <h1 class="hero-title animate-up delay-1">
-        <span class="italic-serif">Your Health,</span><br/>
-        <span>Our Mission</span>
-      </h1>
-      <p class="hero-sub animate-up delay-2">Comprehensive, compassionate, and affordable healthcare for every individual — regardless of background.</p>
-      <div class="hero-actions animate-up delay-3">
-        <a href="#services" class="btn-primary">Explore Services</a>
-        <a href="#contact" class="btn-outline">Contact Us</a>
-      </div>
-      <div class="hero-stats animate-up delay-4">
-        <div class="stat-item"><span class="stat-num">40</span><span class="stat-label">Bed Capacity</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat-item"><span class="stat-num">13+</span><span class="stat-label">Services</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Operating Theatres</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Patient Care</span></div>
-      </div>
+      <a href="tel:0734852922" class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>0734 852 922</span>
+      </a>
+      <a href="mailto:blessedtoblesshealthcare@gmail.com" class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>blessedtoblesshealthcare@gmail.com</span>
+      </a>
     </div>
 
-    <div class="slider-controls">
-      <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
-      <div class="slider-dots" id="sliderDots"></div>
-      <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+    <!-- Socials -->
+    <div class="social-links">
+      <a href="https://wa.me/254720930215" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
 
-  <!-- TICKER STRIP -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span>Outpatient &amp; Inpatient Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>Maternity &amp; Child Welfare</span>
-      <span class="ticker-dot">✦</span>
-      <span>Dental Care</span>
-      <span class="ticker-dot">✦</span>
-      <span>Laboratory Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>GBV Support Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>HIV Counseling &amp; Testing</span>
-      <span class="ticker-dot">✦</span>
-      <span>SHA Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>Family Planning</span>
-      <span class="ticker-dot">✦</span>
-      <span>Minor Surgical Procedures</span>
-      <span class="ticker-dot">✦</span>
-      <span>Pharmacy Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>Outpatient &amp; Inpatient Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>Maternity &amp; Child Welfare</span>
-      <span class="ticker-dot">✦</span>
-      <span>Dental Care</span>
-      <span class="ticker-dot">✦</span>
-      <span>Laboratory Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>GBV Support Services</span>
-      <span class="ticker-dot">✦</span>
-      <span>HIV Counseling &amp; Testing</span>
-      <span class="ticker-dot">✦</span>
-    </div>
+    <p class="footer-note">&copy; 2025 Blessed to Bless Healthcare. <em>Your Health, Our Mission.</em></p>
+
   </div>
 
-  <!-- ABOUT SECTION -->
-  <section class="about-section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-images">
-          <!-- ABOUT IMAGE 1: assets/Hospital-image.jpeg -->
-          <div class="about-img-main reveal">
-            <img src="assets/Hospital-image.jpeg" alt="Blessed to Bless Healthcare Facility" onerror="this.parentElement.style.background='linear-gradient(135deg,#9FBFDF,#5898D2)'"/>
-            <div class="img-badge">Est. Nairobi, Kenya</div>
-          </div>
-          <!-- ABOUT IMAGE 2: assets/reception-image.jpeg -->
-          <div class="about-img-secondary reveal delay-1">
-            <img src="assets/reception-image.jpeg" alt="Our Medical Team" onerror="this.parentElement.style.background='linear-gradient(135deg,#5898D2,#0257A9)'"/>
-          </div>
-        </div>
-        <div class="about-content reveal">
-          <p class="section-eyebrow">Who We Are</p>
-          <h2 class="section-heading">A Community-Centered <br/><em>Healthcare Facility</em></h2>
-          <p class="about-body">Located in the <strong>Soweto area of Embakasi East Sub-County</strong> (Lower Savannah), next to Soweto Catholic Parish in Nairobi County, Blessed to Bless Healthcare is a modern, patient-centered health facility committed to delivering comprehensive and affordable healthcare services to communities in Nairobi and its environs.</p>
-          <p class="about-body">Established to respond to urgent healthcare needs within Nairobi's underserved communities, we have grown from a modest clinic into a <strong>Level 3A healthcare facility</strong>. We embrace digital health systems to enhance efficiency and work closely with government programs to provide immunization services and social health insurance schemes.</p>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <i class="fas fa-heartbeat"></i>
-              <span>Patient-Centered Care</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fas fa-shield-halved"></i>
-              <span>Level 3A Certified Facility</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fas fa-users"></i>
-              <span>Community-Responsive</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fas fa-laptop-medical"></i>
-              <span>Digital Health Systems</span>
-            </div>
-          </div>
-          <a href="#contact" class="btn-primary mt-3">Get in Touch</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISION / MISSION / FOCUS -->
-  <section class="vision-section" id="vision">
-    <div class="vision-bg-pattern"></div>
-    <div class="container">
-      <div class="section-header centered reveal">
-        <p class="section-eyebrow">Our Direction</p>
-        <h2 class="section-heading">Vision, Mission &amp; <em>Strategic Focus</em></h2>
-      </div>
-      <div class="vm-grid">
-        <div class="vm-card reveal">
-          <div class="vm-icon"><i class="fas fa-eye"></i></div>
-          <h3>Our Vision</h3>
-          <p><em>To be the healthcare provider of choice for communities across Kenya and beyond.</em></p>
-        </div>
-        <div class="vm-card reveal delay-1">
-          <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
-          <h3>Our Mission</h3>
-          <p>To deliver community-responsive healthcare by increasing access to quality, integrated, and affordable services for all populations.</p>
-        </div>
-        <div class="vm-card reveal delay-2">
-          <div class="vm-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Strategic Focus</h3>
-          <ul class="vm-list">
-            <li>Continuously upgrading our facility and services</li>
-            <li>Establishing centers of excellence in integrated healthcare</li>
-            <li>Expanding access to underserved populations</li>
-            <li>Leveraging innovation and partnerships</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CORE VALUES -->
-  <section class="values-section" id="values">
-    <div class="container">
-      <div class="section-header centered reveal">
-        <p class="section-eyebrow">What We Stand By</p>
-        <h2 class="section-heading">Our Core <em>Values</em></h2>
-      </div>
-      <div class="values-grid">
-        <div class="value-card reveal">
-          <div class="value-num">01</div>
-          <div class="value-icon"><i class="fas fa-star"></i></div>
-          <h4>Quality &amp; Excellence</h4>
-          <p>Delivering the right care, at the right time, in the right way.</p>
-        </div>
-        <div class="value-card reveal delay-1">
-          <div class="value-num">02</div>
-          <div class="value-icon"><i class="fas fa-heart"></i></div>
-          <h4>Patients First</h4>
-          <p>Placing the needs, dignity, and well-being of our patients at the center of everything we do.</p>
-        </div>
-        <div class="value-card reveal delay-2">
-          <div class="value-num">03</div>
-          <div class="value-icon"><i class="fas fa-smile"></i></div>
-          <h4>Positive Attitude</h4>
-          <p>Fostering respect, empathy, and professionalism in all interactions.</p>
-        </div>
-        <div class="value-card reveal delay-3">
-          <div class="value-num">04</div>
-          <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
-          <h4>Inclusivity</h4>
-          <p>Providing equitable services free from stigma or discrimination.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">05</div>
-          <div class="value-icon"><i class="fas fa-medal"></i></div>
-          <h4>Dedication</h4>
-          <p>Upholding dignity, respect, and compassion in care delivery.</p>
-        </div>
-        <div class="value-card reveal delay-1">
-          <div class="value-num">06</div>
-          <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
-          <h4>Integrity</h4>
-          <p>Maintaining the highest standards of honesty, accountability, and professionalism.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES SECTION -->
-  <section class="services-section" id="services">
-    <div class="services-bg"></div>
-    <div class="container">
-      <div class="section-header centered reveal">
-        <p class="section-eyebrow">What We Offer</p>
-        <h2 class="section-heading">Comprehensive <em>Healthcare Services</em></h2>
-        <p class="section-sub">A full spectrum of healthcare offerings designed with you in mind.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal" id="maternity">
-          <div class="service-icon"><i class="fas fa-baby"></i></div>
-          <h4>Maternity Services</h4>
-          <p>Antenatal &amp; Postnatal care, child welfare clinics with expert midwifery support.</p>
-        </div>
-        <div class="service-card reveal delay-1">
-          <div class="service-icon"><i class="fas fa-flask"></i></div>
-          <h4>Laboratory Services</h4>
-          <p>Comprehensive diagnostic tests including blood work, cultures, hormonal analysis, and more.</p>
-        </div>
-        <div class="service-card reveal delay-2">
-          <div class="service-icon"><i class="fas fa-pills"></i></div>
-          <h4>Pharmacy Services</h4>
-          <p>On-site pharmacy with a wide range of medications, ensuring continuity of care.</p>
-        </div>
-        <div class="service-card reveal delay-3" id="dental">
-          <div class="service-icon"><i class="fas fa-tooth"></i></div>
-          <h4>Dental Care</h4>
-          <p>Professional dental services ranging from routine check-ups to specialized dental procedures.</p>
-        </div>
-        <div class="service-card reveal" id="gbv">
-          <div class="service-icon"><i class="fas fa-shield-heart"></i></div>
-          <h4>GBV Support Services</h4>
-          <p>Specialized, confidential, and compassionate support for survivors of gender-based violence.</p>
-        </div>
-        <div class="service-card reveal delay-1">
-          <div class="service-icon"><i class="fas fa-scalpel"></i></div>
-          <h4>Minor Surgical Procedures</h4>
-          <p>Two fully equipped operating theatres offering safe, quality surgical procedures.</p>
-        </div>
-        <div class="service-card reveal delay-2">
-          <div class="service-icon"><i class="fas fa-ribbon"></i></div>
-          <h4>HIV Counseling &amp; Testing</h4>
-          <p>Confidential VCT services with counseling, support, and linkage to care.</p>
-        </div>
-        <div class="service-card reveal delay-3">
-          <div class="service-icon"><i class="fas fa-venus-mars"></i></div>
-          <h4>Family Planning</h4>
-          <p>Wide range of family planning services tailored to individual and couple needs.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
-          <h4>Youth-Friendly Services</h4>
-          <p>Safe, inclusive, and non-judgmental healthcare services designed for the youth.</p>
-        </div>
-        <div class="service-card reveal delay-1">
-          <div class="service-icon"><i class="fas fa-id-card-clip"></i></div>
-          <h4>SHA Services</h4>
-          <p>Social Health Authority services to ensure accessible and insured healthcare for all.</p>
-        </div>
-        <div class="service-card reveal delay-2">
-          <div class="service-icon"><i class="fas fa-person-walking-with-cane"></i></div>
-          <h4>Outpatient &amp; Inpatient</h4>
-          <p>Modern outpatient consultation and 40-bed inpatient services for comprehensive care.</p>
-        </div>
-        <div class="service-card reveal delay-3">
-          <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-          <h4>Caregiver Training</h4>
-          <p>Structured training programs to empower caregivers in delivering quality home-based care.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FACILITY GALLERY -->
-  <section class="facility-section" id="facility">
-    <div class="container">
-      <div class="section-header centered reveal">
-        <p class="section-eyebrow">Inside Our Facility</p>
-        <h2 class="section-heading">A Healing <em>Environment</em></h2>
-        <p class="section-sub">Purpose-built spaces designed for comfort, safety, and world-class care delivery.</p>
-      </div>
-      <div class="facility-tabs reveal">
-        <button class="tab-btn active" data-tab="all">All</button>
-        <button class="tab-btn" data-tab="facility">Facility</button>
-        <button class="tab-btn" data-tab="pharmacy">Pharmacy</button>
-        <button class="tab-btn" data-tab="laboratory">Laboratory</button>
-        <button class="tab-btn" data-tab="reception">Reception</button>
-        <button class="tab-btn" data-tab="wards">Wards</button>
-      </div>
-      <div class="gallery-grid" id="galleryGrid">
-
-        <!-- FACILITY -->
-        <div class="gallery-item reveal" data-category="facility">
-          <img src="assets/Hospital-image.jpeg" alt="Facility"/>
-          <div class="gallery-overlay"><span>Facility</span></div>
-        </div>
-        <div class="gallery-item reveal delay-1" data-category="facility">
-          <img src="assets/hospital-image1.jpeg" alt="Facility"/>
-          <div class="gallery-overlay"><span>Facility</span></div>
-        </div>
-
-        <!-- PHARMACY -->
-        <div class="gallery-item reveal delay-2" data-category="pharmacy">
-          <img src="assets/pharmacy1.jpeg" alt="Pharmacy"/>
-          <div class="gallery-overlay"><span>Pharmacy</span></div>
-        </div>
-
-        <!-- LABORATORY -->
-        <div class="gallery-item reveal delay-3" data-category="laboratory">
-          <img src="assets/lab.jpeg" alt="Laboratory"/>
-          <div class="gallery-overlay"><span>Laboratory</span></div>
-        </div>
-        <div class="gallery-item reveal" data-category="laboratory">
-          <img src="assets/lab1.jpeg" alt="Laboratory"/>
-          <div class="gallery-overlay"><span>Laboratory</span></div>
-        </div>
-
-        <!-- RECEPTION -->
-        <div class="gallery-item reveal delay-1" data-category="reception">
-          <img src="assets/reception-image.jpeg" alt="Reception &amp; Waiting Bay"/>
-          <div class="gallery-overlay"><span>Reception &amp; Waiting Bay</span></div>
-        </div>
-        <div class="gallery-item reveal delay-2" data-category="reception">
-          <img src="assets/reception1.jpeg" alt="Reception"/>
-          <div class="gallery-overlay"><span>Reception &amp; Waiting Bay</span></div>
-        </div>
-        <div class="gallery-item reveal delay-3" data-category="reception">
-          <img src="assets/reception2.jpeg" alt="Reception"/>
-          <div class="gallery-overlay"><span>Reception &amp; Waiting Bay</span></div>
-        </div>
-
-        <!-- WARDS -->
-        <div class="gallery-item reveal" data-category="wards">
-          <img src="assets/labor-ward1.jpeg" alt="Labour Ward"/>
-          <div class="gallery-overlay"><span>Labour Ward</span></div>
-        </div>
-        <div class="gallery-item reveal delay-1" data-category="wards">
-          <img src="assets/male-ward.jpeg" alt="Male Ward"/>
-          <div class="gallery-overlay"><span>Male Ward</span></div>
-        </div>
-        <div class="gallery-item reveal delay-2" data-category="wards">
-          <img src="assets/paediatric-ward.jpeg" alt="Paediatric Ward"/>
-          <div class="gallery-overlay"><span>Paediatric Ward</span></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMITMENT STRIP -->
-  <section class="commitment-strip">
-    <div class="container">
-      <div class="commitment-content reveal">
-        <div class="commitment-text">
-          <p class="section-eyebrow light">Our Promise</p>
-          <h2><em>Transforming Lives</em> Through Compassionate Care</h2>
-          <p>At Blessed to Bless Healthcare, we are committed to ensuring that every individual — regardless of background — receives the care they deserve.</p>
-        </div>
-        <a href="#contact" class="btn-white">Contact Us Today</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LAB PRICING -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="section-header centered reveal">
-        <p class="section-eyebrow">Transparent Pricing</p>
-        <h2 class="section-heading">Laboratory Services <em>Cost Guide</em></h2>
-        <p class="section-sub">All prices are in Kenyan Shillings (KES). For inquiries, contact our reception.</p>
-      </div>
-      <div class="pricing-search-wrap reveal">
-        <div class="pricing-search">
-          <i class="fas fa-search"></i>
-          <input type="text" id="labSearch" placeholder="Search for a laboratory test..."/>
-        </div>
-      </div>
-      <div class="pricing-table-wrap reveal">
-        <table class="pricing-table" id="labTable">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Service Name</th>
-              <th>Cost (KES)</th>
-            </tr>
-          </thead>
-          <tbody id="labTableBody">
-            <tr><td>1</td><td>ADENO/ROTA</td><td>1,000</td></tr>
-            <tr><td>2</td><td>ALKALINE PHOSPHATES</td><td>1,200</td></tr>
-            <tr><td>3</td><td>ANC PROFILE</td><td>2,000</td></tr>
-            <tr><td>4</td><td>APTT</td><td>2,500</td></tr>
-            <tr><td>5</td><td>ASCITIC FLUID</td><td>4,000</td></tr>
-            <tr><td>6</td><td>ASOT</td><td>700</td></tr>
-            <tr><td>7</td><td>BILIRUBIN LEVELS</td><td>2,000</td></tr>
-            <tr><td>8</td><td>BIOPSY (LARGE)</td><td>10,000</td></tr>
-            <tr><td>9</td><td>BIOPSY (SMALL)</td><td>5,000</td></tr>
-            <tr><td>10</td><td>BLOOD CULTURE</td><td>6,000</td></tr>
-            <tr><td>11</td><td>BLOOD GROUP</td><td>400</td></tr>
-            <tr><td>12</td><td>BONE CHEMISTRY</td><td>8,000</td></tr>
-            <tr><td>13</td><td>BRUCELLA TEST (BAT)</td><td>500</td></tr>
-            <tr><td>14</td><td>BS FOR MALARIA</td><td>200</td></tr>
-            <tr><td>15</td><td>CALCIUM LEVELS</td><td>1,000</td></tr>
-            <tr><td>16</td><td>CHOLESTEROL</td><td>1,200</td></tr>
-            <tr><td>17</td><td>COAGULATION PROFILE</td><td>5,500</td></tr>
-            <tr><td>18</td><td>COVID-19 TEST</td><td>4,000</td></tr>
-            <tr><td>19</td><td>CRAG TEST</td><td>3,000</td></tr>
-            <tr><td>20</td><td>CROSS MATCHING</td><td>3,000</td></tr>
-            <tr><td>21</td><td>CRP</td><td>2,000</td></tr>
-            <tr><td>22</td><td>DU TEST</td><td>1,000</td></tr>
-            <tr><td>23</td><td>ESR</td><td>900</td></tr>
-            <tr><td>24</td><td>FASTING BLOOD SUGAR</td><td>200</td></tr>
-            <tr><td>25</td><td>FSH</td><td>2,500</td></tr>
-            <tr><td>26</td><td>FULL HAEMOGRAM (CBC)</td><td>1,200</td></tr>
-            <tr><td>27</td><td>H. PYLORI AB</td><td>700</td></tr>
-            <tr><td>28</td><td>H. PYLORI AG</td><td>800</td></tr>
-            <tr><td>29</td><td>HB LEVEL</td><td>200</td></tr>
-            <tr><td>30</td><td>HBA1C</td><td>3,000</td></tr>
-            <tr><td>31</td><td>HEPATITIS B</td><td>800</td></tr>
-            <tr><td>32</td><td>HEPATITIS C</td><td>1,000</td></tr>
-            <tr><td>33</td><td>HIGH VAGINAL SWAB</td><td>1,500</td></tr>
-            <tr><td>34</td><td>HORMONAL ANALYSIS</td><td>6,000</td></tr>
-            <tr><td>35</td><td>HVS CULTURE</td><td>3,000</td></tr>
-            <tr><td>36</td><td>HVS WET PREP &amp; GRAMSTAIN</td><td>1,500</td></tr>
-            <tr><td>37</td><td>INR/PT</td><td>2,200</td></tr>
-            <tr><td>38</td><td>LFTS</td><td>3,000</td></tr>
-            <tr><td>39</td><td>LH</td><td>2,000</td></tr>
-            <tr><td>40</td><td>LIPID PROFILE</td><td>3,000</td></tr>
-            <tr><td>41</td><td>MAGNESIUM LEVELS</td><td>1,500</td></tr>
-            <tr><td>42</td><td>MALARIA RDT</td><td>400</td></tr>
-            <tr><td>43</td><td>MALARIA (BLOOD SLIDE)</td><td>200</td></tr>
-            <tr><td>44</td><td>OESTROGEN</td><td>3,000</td></tr>
-            <tr><td>45</td><td>P24 MARKERS</td><td>500</td></tr>
-            <tr><td>46</td><td>PAP SMEAR</td><td>2,500</td></tr>
-            <tr><td>47</td><td>PBF</td><td>600</td></tr>
-            <tr><td>48</td><td>PHOSPHORUS LEVELS</td><td>1,000</td></tr>
-            <tr><td>49</td><td>PLEURAL EFFUSION</td><td>3,000</td></tr>
-            <tr><td>50</td><td>PREGNANCY TEST SERUM</td><td>500</td></tr>
-            <tr><td>51</td><td>PREGNANCY TEST URINE</td><td>200</td></tr>
-            <tr><td>52</td><td>PROGESTERONE</td><td>2,500</td></tr>
-            <tr><td>53</td><td>PROLACTIN LEVELS</td><td>3,500</td></tr>
-            <tr><td>54</td><td>PSA</td><td>1,500</td></tr>
-            <tr><td>55</td><td>PSA QUANTITATIVE</td><td>2,500</td></tr>
-            <tr><td>56</td><td>PT/INR</td><td>2,500</td></tr>
-            <tr><td>57</td><td>PUS SWAB CULTURE</td><td>3,500</td></tr>
-            <tr><td>58</td><td>RBS (RANDOM BLOOD SUGAR)</td><td>200</td></tr>
-            <tr><td>59</td><td>RHEUMATOID FACTOR (RF)</td><td>600</td></tr>
-            <tr><td>60</td><td>SALMONELLA TEST (AG)</td><td>1,000</td></tr>
-            <tr><td>61</td><td>SEMEN ANALYSIS</td><td>6,000</td></tr>
-            <tr><td>62</td><td>SICKLING TEST</td><td>2,000</td></tr>
-            <tr><td>63</td><td>SPERM ANALYSIS</td><td>2,000</td></tr>
-            <tr><td>64</td><td>STOOL CULTURE</td><td>2,500</td></tr>
-            <tr><td>65</td><td>STOOL FOR O/C</td><td>300</td></tr>
-            <tr><td>66</td><td>STOOL FOR OCCULT</td><td>700</td></tr>
-            <tr><td>67</td><td>SYPHILIS (VDRL)</td><td>600</td></tr>
-            <tr><td>68</td><td>TESTOSTERONE</td><td>3,000</td></tr>
-            <tr><td>69</td><td>THYROID FUNCTION TESTS (TFTs)</td><td>3,000</td></tr>
-            <tr><td>70</td><td>THROAT SWAB</td><td>1,000</td></tr>
-            <tr><td>71</td><td>UECS</td><td>3,200</td></tr>
-            <tr><td>72</td><td>URIC ACID</td><td>1,500</td></tr>
-            <tr><td>73</td><td>URINALYSIS</td><td>500</td></tr>
-            <tr><td>74</td><td>URINE CULTURE</td><td>2,800</td></tr>
-            <tr><td>75</td><td>WIDAL (SALMONELLA TEST AB)</td><td>450</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="section-header centered reveal">
-        <p class="section-eyebrow">Reach Us</p>
-        <h2 class="section-heading">Contact <em>Us Here</em></h2>
-        <p class="section-sub">We're here for you. Reach out through any of the channels below.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-card">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <h4>Our Location</h4>
-              <p>Soweto Area, Embakasi East Sub-County (Lower Savannah),<br/>Next to Soweto Catholic Parish, Nairobi County, Kenya</p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-            <div>
-              <h4>Call Us</h4>
-              <p><a href="tel:0720930215">0720 930 215</a></p>
-              <p><a href="tel:0734852922">0734 852 922</a></p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <h4>Email Us</h4>
-              <p><a href="mailto:blessedtoblesshealthcare@gmail.com">blessedtoblesshealthcare@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon"><i class="fas fa-clock"></i></div>
-            <div>
-              <h4>Working Hours</h4>
-              <p>Mon – Fri: 8:00 AM – 8:00 PM</p>
-              <p>Sat – Sun: 8:00 AM – 5:00 PM</p>
-              <p><em>Emergency services available 24/7</em></p>
-            </div>
-          </div>
-          <div class="contact-socials">
-            <a href="https://wa.me/254720930215" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank" class="social-icon twitter"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="contact-form-wrap reveal delay-1">
-          <form class="contact-form" id="contactForm">
-            <h3>Send Us a Message</h3>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" placeholder="Your full name" required/>
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="e.g. 0700 000 000" required/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" placeholder="your@email.com"/>
-            </div>
-            <div class="form-group">
-              <label>Service of Interest</label>
-              <select>
-                <option value="">Select a service...</option>
-                <option>Outpatient Services</option>
-                <option>Maternity Services</option>
-                <option>Laboratory Services</option>
-                <option>Dental Care</option>
-                <option>GBV Support</option>
-                <option>HIV Counseling & Testing</option>
-                <option>Family Planning</option>
-                <option>Minor Surgical Procedures</option>
-                <option>Pharmacy</option>
-                <option>SHA Services</option>
-                <option>General Inquiry</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Your Message</label>
-              <textarea placeholder="How can we help you?" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary full-width">Send Message <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <img src="assets/logo.png" alt="Blessed to Bless Healthcare" class="footer-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
-            <span class="footer-logo-text" style="display:none">Blessed to Bless Healthcare</span>
-            <p class="footer-tagline"><em>"Your Health, Our Mission"</em></p>
-            <p>A modern, patient-centered Level 3A healthcare facility serving communities in Nairobi and its environs.</p>
-            <div class="footer-socials">
-              <a href="https://wa.me/254720930215" target="_blank"><i class="fab fa-whatsapp"></i></a>
-              <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
-              <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-          <div class="footer-links-col">
-            <h5>Quick Links</h5>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#facility">Our Facility</a></li>
-              <li><a href="#pricing">Lab Costs</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-links-col">
-            <h5>Our Services</h5>
-            <ul>
-              <li><a href="#maternity">Maternity Services</a></li>
-              <li><a href="#dental">Dental Care</a></li>
-              <li><a href="#gbv">GBV Support</a></li>
-              <li><a href="#services">HIV Counseling</a></li>
-              <li><a href="#services">Family Planning</a></li>
-              <li><a href="#services">Youth-Friendly Services</a></li>
-            </ul>
-          </div>
-          <div class="footer-contact-col">
-            <h5>Contact Info</h5>
-            <p><i class="fas fa-map-marker-alt"></i> Soweto Area, Embakasi East,<br/>Nairobi County, Kenya</p>
-            <p><i class="fas fa-phone"></i> <a href="tel:0720930215">0720 930 215</a></p>
-            <p><i class="fas fa-phone"></i> <a href="tel:0734852922">0734 852 922</a></p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:blessedtoblesshealthcare@gmail.com">blessedtoblesshealthcare@gmail.com</a></p>
-            <p class="bed-badge"><i class="fas fa-bed"></i> Bed Capacity: <strong>40 Beds</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; <span id="year"></span> Blessed to Bless Healthcare. All Rights Reserved. <em>Your Health, Our Mission.</em></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/254720930215" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-    <span class="wa-tooltip">WhatsApp Us Here</span>
-  </a>
-
-  <!-- BACK TO TOP -->
-  <button class="back-to-top" id="backTop"><i class="fas fa-arrow-up"></i></button>
-
-  <script src="js/main.js"></script>
 </body>
 </html>
