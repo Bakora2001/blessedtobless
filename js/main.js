@@ -195,23 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ---- LAB SEARCH ----
+  // ---- LAB SEARCH (only if table exists) ----
   const labSearch = document.getElementById('labSearch');
-  const tableRows = document.querySelectorAll('#labTableBody tr');
-
-  labSearch.addEventListener('input', () => {
-    const query = labSearch.value.toLowerCase().trim();
-    let count = 1;
-    tableRows.forEach(row => {
-      const name = row.cells[1].textContent.toLowerCase();
-      if (name.includes(query)) {
-        row.classList.remove('row-hidden');
-        row.cells[0].textContent = count++;
-      } else {
-        row.classList.add('row-hidden');
-      }
+  if (labSearch) {
+    const tableRows = document.querySelectorAll('#labTableBody tr');
+    labSearch.addEventListener('input', () => {
+      const query = labSearch.value.toLowerCase().trim();
+      let count = 1;
+      tableRows.forEach(row => {
+        const name = row.cells[1].textContent.toLowerCase();
+        if (name.includes(query)) {
+          row.classList.remove('row-hidden');
+          row.cells[0].textContent = count++;
+        } else {
+          row.classList.add('row-hidden');
+        }
+      });
     });
-  });
+  }
 
 
   // ---- CONTACT FORM ----
